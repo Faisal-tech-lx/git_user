@@ -4,4 +4,6 @@ Users:
   - name:  harry
     group: manager
   - name: bob  
+  - name: bob  
+    group: developer
     group: developer
