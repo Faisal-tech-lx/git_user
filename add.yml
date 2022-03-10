@@ -1,0 +1,20 @@
+---
+- name: Add User & Group
+  hosts: Test
+  become: yes
+  vars_files:
+    - User_file.yml 
+  tasks:
+  - name: Add Group
+    group:
+      name: "{{item.group}}"
+      state: present
+    with_list: "{{Users}}"
+
+  - name: Add Users
+    user: 
+      name: "{{item.name}}"
+      groups: "{{item.group}}"
+      state: present
+    with_list: "{{Users}}"
+
